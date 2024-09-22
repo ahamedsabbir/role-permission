@@ -7,6 +7,11 @@
 <script src="{{ asset('backend') }}/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
 <script src="{{ asset('backend') }}/assets/libs/feather-icons/feather.min.js"></script>
 
+<!-- third party js -->
+@stack('datatablejs')
+
+<!-- third party js ends -->
+
 <!-- knob plugin -->
 <script src="{{ asset('backend') }}/assets/libs/jquery-knob/jquery.knob.min.js"></script>
 
