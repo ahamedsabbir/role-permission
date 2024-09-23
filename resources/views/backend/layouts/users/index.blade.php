@@ -25,7 +25,7 @@
                             <tr>
                                 <th>SN</th>
                                 <th>Name</th>
-                                <th>Created</th>
+                                <th>Roles</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -33,16 +33,20 @@
 
                         <tbody>
                             @php $sn = 1; @endphp
-                            @forelse ($roles as $role) 
+                            @forelse ($users as $user) 
                             <tr>
                                 <td>{{ $sn++ }}</td>
-                                <td>{{ $role->name }}</td>
-                                <td>{{ \Carbon\Carbon::parse($role->created_at)->format('d-m-Y') }}</td>
+                                <td>{{ $user->name }}</td>
                                 <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-primary"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success"><i class="mdi mdi-eye"></i></a>
-                                        <form action="{{ route('roles.destroy', $role->id) }}" method="post">
+                                    @foreach ($user->roles as $role)
+                                        <span class="badge rounded-pill bg-primary">{{ $role->name }}</span>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    <div class="btn-group" user="group" aria-label="Basic example">
+                                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary"><i class="mdi mdi-pencil"></i></a>
+                                        <a href="{{ route('user.show', $user->id) }}" class="btn btn-success"><i class="mdi mdi-eye"></i></a>
+                                        <form action="{{ route('user.destroy', $user->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"><i class="mdi mdi-delete"></i></button>

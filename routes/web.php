@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\Backend\PermissionController;
-use App\Http\Controllers\Backend\RoleController;
+
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Web\Backend\PermissionController;
+use App\Http\Controllers\Web\Backend\RoleController;
+use App\Http\Controllers\Web\Backend\UserController;
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('roles', RoleController::class)->middleware(['auth', 'verified']);
 Route::resource('permissions', PermissionController::class)->middleware(['auth', 'verified']);
+Route::resource('user', UserController::class)->middleware(['auth', 'verified']);
 
 
 

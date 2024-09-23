@@ -62,6 +62,20 @@
                 <li class="menu-title mt-2">Roles-Permitions</li>
 
                 <li>
+                    <a href="#sidebarUser" data-bs-toggle="collapse">
+                        <i class="mdi mdi-clipboard-outline"></i>
+                        <span> User </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarUser">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('user.create') }}" class="{{ request()->routeIs('user.create') ? 'active' : '' }}">Create</a></li>
+                            <li><a href="{{ route('user.index') }}" class="{{ request()->routeIs('user.index') ? 'active' : '' }}">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
                     <a href="#sidebarRoles" data-bs-toggle="collapse">
                         <i class="mdi mdi-clipboard-outline"></i>
                         <span> Roles </span>
