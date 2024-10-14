@@ -60,6 +60,35 @@
             <ul id="side-menu">
 
                 <li>
+                    <a href="#sidebarPost" data-bs-toggle="collapse">
+                        <i class="mdi mdi-clipboard-outline"></i>
+                        <span> Post </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarPost">
+                        <ul class="nav-second-level">
+                            <li><a href="#" class="">Current Post</a></li>
+                            <li><a href="#" class="">Active Post</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarCategory" data-bs-toggle="collapse">
+                        <i class="mdi mdi-clipboard-outline"></i>
+                        <span> Category </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarCategory">
+                        <ul class="nav-second-level">
+                            <li><a href="#" class="">Create</a></li>
+                            <li><a href="{{ route('category.index') }}" class="">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="menu-title mt-2">Navigation</li>
+
+                <li>
                     <a href="#sidebarCMS" data-bs-toggle="collapse">
                         <i class="mdi mdi-clipboard-outline"></i>
                         <span> CMS </span>
@@ -69,6 +98,20 @@
                         <ul class="nav-second-level">
                             <li><a href="{{ route('cms.create') }}" class="{{ request()->routeIs('cms.create') ? 'active' : '' }}">Create</a></li>
                             <li><a href="{{ route('cms.index') }}" class="{{ request()->routeIs('cms.index') ? 'active' : '' }}">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarSettings" data-bs-toggle="collapse">
+                        <i class="mdi mdi-clipboard-outline"></i>
+                        <span> Settings </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarSettings">
+                        <ul class="nav-second-level">
+                            <li><a href="#" class="">Profile</a></li>
+                            <li><a href="#" class="">Mail</a></li>
+                            <li><a href="#" class="">General</a></li>
                         </ul>
                     </div>
                 </li>

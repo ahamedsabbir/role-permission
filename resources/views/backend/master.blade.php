@@ -17,7 +17,7 @@
             <!-- end Topbar -->
 
             <!-- ========== Left Sidebar Start ========== -->
-            @include('backend.partials.left_sidebar')
+            @include('backend.partials.left-sidebar')
             <!-- Left Sidebar End -->
 
             <!-- ============================================================== -->
@@ -47,7 +47,7 @@
         <!-- END wrapper -->
 
         <!-- Right Sidebar -->
-        @include('backend.partials.right_sidebar')
+        @include('backend.partials.right-sidebar')
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
