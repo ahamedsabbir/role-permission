@@ -13,16 +13,20 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('price');
+            $table->string('sku')->unique();
+            $table->string('thumbnail')->nullable();
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->bigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
-            $table->string('name');
             $table->longText('description')->nullable();
-            $table->enum('type', ['new', 'old'])->default('new')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('active')->nullable();
+            $table->enum('type', ['new', 'old'])->default('new');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

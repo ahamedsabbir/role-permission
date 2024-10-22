@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('cms', function (Blueprint $table) {
             $table->id();
+            $table->string('page');
+            $table->string('section');
+            $table->string('slug');
+            $table->string('item')->nullable();
+            $table->string('title')->nullable();
+            $table->string('title_two')->nullable();
+            $table->text('description')->nullable();
+            $table->text('description_two')->nullable();
+            $table->string('button_text')->nullable();
+            $table->string('button_link')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image_two')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }
