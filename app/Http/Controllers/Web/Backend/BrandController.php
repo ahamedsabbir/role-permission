@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web\Backend;
 
-use App\Models\Store;
+use App\Models\Brand;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class StoreController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class StoreController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Store $store)
+    public function show(Brand $brand)
     {
         //
     }
@@ -42,7 +43,7 @@ class StoreController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Store $store)
+    public function edit(Brand $brand)
     {
         //
     }
@@ -50,7 +51,7 @@ class StoreController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, Brand $brand)
     {
         //
     }
@@ -58,7 +59,7 @@ class StoreController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Store $store)
+    public function destroy(Brand $brand)
     {
         //
     }

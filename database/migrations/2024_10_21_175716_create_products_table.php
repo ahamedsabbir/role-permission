@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('price');
             $table->string('sku')->unique();
             $table->string('thumbnail')->nullable();
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->bigInteger('category_id');
+            $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->bigInteger('brand_id');
+            $table->bigInteger('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->longText('description')->nullable();
             $table->enum('type', ['new', 'old'])->default('new');

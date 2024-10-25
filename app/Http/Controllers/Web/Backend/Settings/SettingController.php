@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web\Backend\Settings;
 
-use App\Models\Social;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
-class SocialController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class SocialController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Social $social)
+    public function show(Setting $setting)
     {
         //
     }
@@ -42,7 +42,7 @@ class SocialController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Social $social)
+    public function edit(Setting $setting)
     {
         //
     }
@@ -50,7 +50,7 @@ class SocialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Social $social)
+    public function update(Request $request, Setting $setting)
     {
         //
     }
@@ -58,7 +58,7 @@ class SocialController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Social $social)
+    public function destroy(Setting $setting)
     {
         //
     }

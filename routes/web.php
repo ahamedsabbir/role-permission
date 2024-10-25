@@ -3,10 +3,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\Backend\CategoryController;
-use App\Http\Controllers\Web\Backend\CmsController;
-use App\Http\Controllers\Web\Backend\PermissionController;
-use App\Http\Controllers\Web\Backend\RoleController;
-use App\Http\Controllers\Web\Backend\UserController;
+
+use App\Http\Controllers\Web\Backend\Authorization\PermissionController;
+use App\Http\Controllers\Web\Backend\Authorization\RoleController;
+use App\Http\Controllers\Web\Backend\Authorization\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     //role-permition routes end
 
     //CMS routes start
-    Route::resource('cms', CmsController::class);
+    
     //CMS routes end
 
     //Category routes start

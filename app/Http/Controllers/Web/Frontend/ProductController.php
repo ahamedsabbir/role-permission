@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Web\Backend;
+namespace App\Http\Controllers\Web\Frontend;
 
-use App\Http\Controllers\Controller;
-use App\Models\cms;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class CmsController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class CmsController extends Controller
      */
     public function create()
     {
-        return view('backend.layouts.cms.create');
+        //
     }
 
     /**
@@ -35,7 +35,7 @@ class CmsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cms $cms)
+    public function show(Product $product)
     {
         //
     }
@@ -43,7 +43,7 @@ class CmsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cms $cms)
+    public function edit(Product $product)
     {
         //
     }
@@ -51,7 +51,7 @@ class CmsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, cms $cms)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -59,7 +59,7 @@ class CmsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cms $cms)
+    public function destroy(Product $product)
     {
         //
     }

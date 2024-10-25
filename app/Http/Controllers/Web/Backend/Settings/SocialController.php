@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web\Backend\Settings;
 
-use App\Models\Brand;
+use App\Models\Social;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class BrandController extends Controller
+class SocialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class BrandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Brand $brand)
+    public function show(Social $social)
     {
         //
     }
@@ -42,7 +43,7 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit(Social $social)
     {
         //
     }
@@ -50,7 +51,7 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, Social $social)
     {
         //
     }
@@ -58,7 +59,7 @@ class BrandController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Brand $brand)
+    public function destroy(Social $social)
     {
         //
     }

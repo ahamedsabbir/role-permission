@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web\Backend\Settings;
 
-use App\Models\Setting;
+use App\Models\DymanicPage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class SettingController extends Controller
+class DymanicPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +35,7 @@ class SettingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Setting $setting)
+    public function show(DymanicPage $dymanicPage)
     {
         //
     }
@@ -42,7 +43,7 @@ class SettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Setting $setting)
+    public function edit(DymanicPage $dymanicPage)
     {
         //
     }
@@ -50,7 +51,7 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Setting $setting)
+    public function update(Request $request, DymanicPage $dymanicPage)
     {
         //
     }
@@ -58,7 +59,7 @@ class SettingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Setting $setting)
+    public function destroy(DymanicPage $dymanicPage)
     {
         //
     }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('dymanic_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('page_title')->nullable();
-            $table->string('page_slug')->nullable();
-            $table->longText('page_content')->nullable();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
+            $table->longText('content')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active')->nullable();
             $table->timestamps();
         });
