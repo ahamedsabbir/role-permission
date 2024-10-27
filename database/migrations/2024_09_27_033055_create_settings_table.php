@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('keywords')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('company')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->string('copyright')->nullable();
+            $table->longText('copyright')->nullable();
             $table->string('icon')->nullable();
             $table->string('favicon')->nullable();
             $table->timestamps();

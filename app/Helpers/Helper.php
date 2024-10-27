@@ -4,6 +4,11 @@ namespace App\Helpers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
+use App\Models\CMS;
+use App\Models\DynamicPage;
+use App\Enums\PageEnum;
+use App\Enums\SectionEnum;
+use App\Models\Setting;
 
 class Helper {
     //! File or Image Upload
@@ -50,5 +55,36 @@ class Helper {
             $response['data'] = $data;
         }
         return response()->json($response, $code);
+    }
+
+    //! File View
+    public static function fileView($file_path, $default = null){
+        if(isset($file_path) && file_exists(public_path($file_path))){
+            return asset($file_path);
+        }
+        if($default !== null && file_exists(public_path($default))){
+            return asset($default);
+        }
+        return asset('default/logo.png');
+    }
+
+    //! Dynamic Pages
+    public static function dynamicPages(){
+        $dynamicPage = DynamicPage::where('status', 'active')->get();
+        return $dynamicPage;
+    }
+
+    function getCommonCms()
+    {
+        $common = CMS::where('page', Page::COMMON)->where('status', 'active');
+        foreach (Section::getCommon() as $key => $section) {
+            $cms[$key] = (clone $common)->where('section', $key)->latest()->take($section['item'])->{$section['type']}();
+        } 
+        return $cms;
+    }
+
+    public static function getSetting()
+    {
+        return Setting::first();
     }
 }

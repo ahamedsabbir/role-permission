@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('price');
+            $table->float('price');
             $table->string('sku')->unique();
             $table->string('thumbnail')->nullable();
             $table->bigInteger('user_id')->unsigned();

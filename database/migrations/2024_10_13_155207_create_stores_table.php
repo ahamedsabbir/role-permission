@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('name');
+            $table->string('thumbnail')->nullable();
+            $table->longText('description')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active')->nullable();
             $table->timestamps();
         });
     }
