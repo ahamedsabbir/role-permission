@@ -8,59 +8,49 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function search()
     {
-        //
-    }
+        if ($request->has('search')) {
+            $valudation = $request->validate([
+                'name' => 'required|string|max:255',
+                'time_date' => 'required',
+                'participants' => 'required|gt:0',
+            ]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+            $advertiseCharters = FishingCharter::with(['user', 'reviews', 'images'])
+                ->whereHas('adventure', function ($query) {
+                    $query->where('status', 'Active');
+                })
+                ->where('status', 'Active')
+                ->withAvg('reviews', 'rating')
+                ->withCount([
+                    'reviews' => function ($query) {
+                        $query->where('status', 'Active');
+                    }
+                ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            if ($request->has('name') && $request->name != null) {
+                $advertiseCharters->where('name', 'like', '%' . $request->name . '%');
+            }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
+            if ($request->has('time_date') && $request->time_date != null) {
+                $date = new \DateTime($request->time_date);
+                $formattedDate = $date->format('Y-m-d');
+                $advertiseCharters->whereDate('created_at', $formattedDate);
+            }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
+            if ($request->has('participants') && $request->participants != null) {
+                $advertiseCharters->where('participants', $request->participants);
+            }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
+            if ($advertiseCharters->count() <= 0) {
+                return redirect()->back()->with('search_error', 'Search data not found.');
+            }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
+            $advertiseCharters = $advertiseCharters->paginate(6);
+        } else {
+            $advertiseCharters = null;
+        }
+        return view('frontend.layouts.products');
     }
 }
