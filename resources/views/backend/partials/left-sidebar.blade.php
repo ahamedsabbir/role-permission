@@ -73,30 +73,16 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#sidebarCategory" data-bs-toggle="collapse">
+                    <a href="{{ route('category.index') }}">
                         <i class="mdi mdi-clipboard-outline"></i>
                         <span> Category </span>
-                        <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarCategory">
-                        <ul class="nav-second-level">
-                            <li><a href="#" class="">Create</a></li>
-                            <li><a href="{{ route('category.index') }}" class="">List</a></li>
-                        </ul>
-                    </div>
                 </li>
                 <li>
-                    <a href="#sidebarBrand" data-bs-toggle="collapse">
+                    <a href="#">
                         <i class="mdi mdi-clipboard-outline"></i>
                         <span> Brand </span>
-                        <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarBrand">
-                        <ul class="nav-second-level">
-                            <li><a href="#" class="">Create</a></li>
-                            <li><a href="#" class="">List</a></li>
-                        </ul>
-                    </div>
                 </li>
 
                 <li class="menu-title mt-2">Navigation</li>

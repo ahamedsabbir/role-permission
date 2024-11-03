@@ -44,7 +44,7 @@ class ProductController extends Controller
             }
 
             if ($advertiseCharters->count() <= 0) {
-                return redirect()->back()->with('search_error', 'Search data not found.');
+                Session()->put('error', 'No result found');
             }
 
             $advertiseCharters = $advertiseCharters->paginate(6);
