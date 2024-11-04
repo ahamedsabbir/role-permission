@@ -15,9 +15,13 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Category::get();
+            $data = Category::all();
             return DataTables::of($data)
                 ->addIndexColumn()
+                ->addColumn('image', function ($data) {
+                    $url = $data->image ? asset($data->image) : asset('default/logo.png');
+                    return '<img src="' . $url . '" alt="image" width="40px" height="40px">';
+                })
                 ->addColumn('status', function ($data) {
                     // Status Dropdown
                     $status = '<div class="dropdown">';
@@ -31,10 +35,6 @@ class CategoryController extends Controller
                     $status .= '</div>';
 
                     return $status;
-                })
-                ->addColumn('image', function ($data) {
-                    $url = asset($data->image);
-                    return '<img src="' . $url . '" alt="image" width="40px" height="40px">';
                 })
                 ->addColumn('action', function ($data) {
                     return '
@@ -60,7 +60,7 @@ class CategoryController extends Controller
                     </div>';
                 })
 
-                ->rawColumns(['action', 'status', 'image'])
+                ->rawColumns(['image', 'status', 'action'])
                 ->make(true);
         }
 
