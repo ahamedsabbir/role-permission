@@ -1,5 +1,5 @@
-@extends('backend.app')
-@section('title', 'Fishing Type')
+@extends('backend.master', ['title' => 'Fishing Type'])
+
 @push('styles')
 <style>
     .table-topbar {
@@ -20,7 +20,7 @@
     <!-- other main contents start from here -->
     <div class="d-flex justify-content-between align-items-center">
         <div class="dashboard-title">Type Of Fishing</div>
-        <a href="{{route('fishing.type.adding')}}" class="btn btn-primary" style="background-color:#61a745; border:none;">Add Fishings</a>
+        <a href="{{route('category.create')}}" class="btn btn-primary" style="background-color:#61a745; border:none;">Add Fishings</a>
     </div>
     <div class="data-table table-responsive">
         <table class="table table-hover" id="data-table">
@@ -29,7 +29,6 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Image</th>
-                    <th>IS Popular</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -73,7 +72,7 @@
                 },
 
                 ajax: {
-                    url: "{{ route('fishing.type.index') }}",
+                    url: "{{ route('category.index') }}",
                     type: "GET"
                 },
 
@@ -89,11 +88,6 @@
                         data: 'image',
                         name: 'image'
                     },
-                    {
-                        data: 'is_popular',
-                        name: 'is_popular'
-                    },
-
                     {
                         data: 'status',
                         name: 'status',
@@ -139,7 +133,7 @@
     };
     // Delete Button
     function deleteItem(id) {
-        var url = "{{ route('fishing.type.destroy', ':id') }}";
+        var url = "{{ route('category.destroy', ':id') }}";
         var csrfToken = '{{ csrf_token() }}';
         $.ajax({
             type: "DELETE",
@@ -191,7 +185,7 @@
 
     // Status Change Function
     function statusChange(id, newStatus) {
-        var url = "{{ route('fishing.type.status', ':id') }}";
+        var url = "{{ route('category.status', ':id') }}";
         $.ajax({
             type: "PATCH",
             headers: {

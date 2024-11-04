@@ -36,11 +36,10 @@ class CategoryController extends Controller
                     $url = asset($data->image);
                     return '<img src="' . $url . '" alt="image" width="40px" height="40px">';
                 })
-
                 ->addColumn('action', function ($data) {
                     return '
                     <div class="btn-group btn-group-sm btn-group-custom" role="group" aria-label="Basic example">
-                        <a href="' . route('fishing.type.edit', $data->id) . '" class="btn btn-outline-primary" title="Edit">
+                        <a href="' . route('category.edit', $data->id) . '" class="btn btn-outline-primary" title="Edit">
                             <!-- SVG for Edit Icon -->
                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M9.16602 1.66663H7.49935C3.33268 1.66663 1.66602 3.33329 1.66602 7.49996V12.5C1.66602 16.6666 3.33268 18.3333 7.49935 18.3333H12.4993C16.666 18.3333 18.3327 16.6666 18.3327 12.5V10.8333" stroke="#030C09" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -65,11 +64,11 @@ class CategoryController extends Controller
                 ->make(true);
         }
 
-        return view('backend.layouts.fishing-type.index');
+        return view('backend.layouts.category.index');
     }
     public function create()
     {
-        return view('backend.layouts.fishing-type.create');
+        return view('backend.layouts.category.create');
     }
 
     public function store(Request $request)
